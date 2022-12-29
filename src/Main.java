@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int [] arr = {4214, 787678, 6, 909, 76165, 11, 45, 3 ,2 , 47};
+        int [] arr = {4214, 787678, 6, 909, 76165, 11, 45, 47};
 
 //point 1 (Min & Max numbers)
 
@@ -64,16 +64,21 @@ public class Main {
 
 // point 4 (Display numbers that are in ascending order)
 
-//        System.out.print("Numbers that are in ascending order : ");
-//        int order;
-//        for (int i = 0; i < arr.length; i++) {
-//            if(min == arr[i]){
-//                order = min;
-//                System.out.print(order + ", ");
-//            }
-//
-//        }
-//        System.out.println(" ");
+        System.out.print("Numbers that are in ascending order : ");
+        int[] arr2 = new int[arr.length];
+        System.arraycopy(arr, 0, arr2, 0, arr.length);
+        Arrays.sort(arr2);
+        int order = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = order; j < arr.length; j++) {
+                if (arr[j] == arr2[i] && j >= i) {
+                    order = j;
+                    System.out.print(arr[j] + " ");
+                }
+            }
+        }
+        System.out.println(" ");
 
 //point 5 (Palindromes)
 
