@@ -64,16 +64,16 @@ public class Main {
 
 // point 4 (Display numbers that are in ascending order)
 
-        System.out.print("Numbers that are in ascending order : ");
-        int order;
-        for (int i = 0; i < arr.length; i++) {
-            if(min == arr[i]){
-                order = min;
-                System.out.print(order + ", ");
-            }
-
-        }
-        System.out.println(" ");
+//        System.out.print("Numbers that are in ascending order : ");
+//        int order;
+//        for (int i = 0; i < arr.length; i++) {
+//            if(min == arr[i]){
+//                order = min;
+//                System.out.print(order + ", ");
+//            }
+//
+//        }
+//        System.out.println(" ");
 
 //point 5 (Palindromes)
 
