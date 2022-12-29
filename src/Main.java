@@ -4,25 +4,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int [] arr = {-4, -787678, 6, 909, 76165};
+        int [] arr = {4214, 787678, 6, 909, 76165, 11, 45, 3 ,2 , 47};
 
 //point 1 (Min & Max numbers)
-
-        int min = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < min){
-                 min = arr[i];
-            }
-        }
-        System.out.println("Min number in the array : " + min);
 
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > max){
-                max = arr[i];
+                 max = arr[i];
             }
         }
-        System.out.println("Min number in the array : " + max);
+        System.out.println("Max number in the array : " + max);
+
+        int min = max;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min){
+                min = arr[i];
+            }
+        }
+        System.out.println("Min number in the array : " + min);
 
 //point 2 (Evens & Odds numbers)
 
@@ -37,8 +37,11 @@ public class Main {
 //point 3 (Shortest & Longest numbers)
 
         int shortest = 0;
+
         int longest = 0;
+
         int start = 0;
+
         for (int i = 0; i < arr.length; i++) {
             String stringLenght = String.valueOf(Math.abs(arr[i]));
             int lenght = stringLenght.length();
@@ -61,9 +64,16 @@ public class Main {
 
 // point 4 (Display numbers that are in ascending order)
 
+        System.out.print("Numbers that are in ascending order : ");
+        int order;
         for (int i = 0; i < arr.length; i++) {
-            
+            if(min == arr[i]){
+                order = min;
+                System.out.print(order + ", ");
+            }
+
         }
+        System.out.println(" ");
 
 //point 5 (Palindromes)
 
