@@ -110,5 +110,21 @@ public class Main {
                 System.out.print(arr[i] + " ");
             }
         }
+        System.out.println("");
+//point with *
+        boolean sorted = true;
+        int sort = 0;
+        while(sorted) {
+            sorted = false;
+            for (i = 0; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i+1]) {
+                    sorted = true;
+                    sort = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = sort;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }
