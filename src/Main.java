@@ -4,35 +4,43 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int [] arr = {4214, 787678, 6, 909, 76165, 11, 45, 47};
+        int[] arr = {4214, 2, 3, 6, 4, 76165, 11, 47};
+        int j = 0;
+        int i = 0;
 
 //point 1 (Min & Max numbers)
 
         int max = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max){
-                 max = arr[i];
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
             }
         }
         System.out.println("Max number in the array : " + max);
 
         int min = max;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < min){
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
                 min = arr[i];
             }
         }
         System.out.println("Min number in the array : " + min);
 
 //point 2 (Evens & Odds numbers)
-
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] % 2 == 0){
-                System.out.println("even number : " + arr[i]);
-            }else {
-                System.out.println("odd number : " + arr[i]);
+        System.out.print("Even numbers :");
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                System.out.print(" " + arr[i]);
             }
         }
+        System.out.println("");
+        System.out.print("Odd numbers :");
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 != 0) {
+                System.out.print(" " + arr[i]);
+            }
+        }
+        System.out.println("");
 
 //point 3 (Shortest & Longest numbers)
 
@@ -42,20 +50,20 @@ public class Main {
 
         int start = 0;
 
-        for (int i = 0; i < arr.length; i++) {
+        for (i = 0; i < arr.length; i++) {
             String stringLenght = String.valueOf(Math.abs(arr[i]));
             int lenght = stringLenght.length();
-            if (lenght > start){
+            if (lenght > start) {
                 start = lenght;
                 longest = arr[i];
             }
         }
         System.out.println("One of the Longests numbers : " + longest);
 
-        for (int i = 0; i < arr.length; i++) {
+        for (i = 0; i < arr.length; i++) {
             String stringLenght = String.valueOf(Math.abs(arr[i]));
             int lenght = stringLenght.length();
-            if (lenght < start){
+            if (lenght < start) {
                 start = lenght;
                 shortest = arr[i];
             }
@@ -68,28 +76,38 @@ public class Main {
         int[] arr2 = new int[arr.length];
         System.arraycopy(arr, 0, arr2, 0, arr.length);
         Arrays.sort(arr2);
-        int order = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = order; j < arr.length; j++) {
-                if (arr[j] == arr2[i] && j >= i) {
-                    order = j;
-                    System.out.print(arr[j] + " ");
+
+        out:
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < arr.length - 2; j++) {
+                if (arr2[i] == arr[j]) {
+                    break out;
                 }
             }
         }
-        System.out.println(" ");
+        System.out.print(arr[j]);
+
+        for (i = i; i < arr.length; i++) {
+            for (int j1 = j + 1; j1 < arr.length; j1++) {
+                if (arr2[i] == arr[j1] && j < j1) {
+                    System.out.print(" " + arr[j1]);
+                    j = j1;
+                }
+            }
+        }
+        System.out.println("");
 
 //point 5 (Palindromes)
 
         System.out.print("Palindromes : ");
-        for (int i = 0; i < arr.length; i++) {
+        for (i = 0; i < arr.length; i++) {
             String snum = String.valueOf(Math.abs(arr[i]));
             StringBuilder lenght = new StringBuilder(snum);
             int l = Integer.parseInt(lenght.reverse().toString());
             int num = Integer.parseInt(snum);
-            if (num == l){
-                System.out.print(arr[i] + ", ");
+            if (num == l && lenght.length() > 1) {
+                System.out.print(arr[i] + " ");
             }
         }
     }
