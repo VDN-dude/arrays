@@ -79,7 +79,7 @@ public class Main {
 
 
         out:
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < arr.length; i++) {
             for (j = 0; j < arr.length - 2; j++) {
                 if (arr2[i] == arr[j]) {
                     break out;
