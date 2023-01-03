@@ -4,7 +4,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int[] arr = {4214, 2, 3, 6, 4, 76165, 11, 47};
+        int[] arr = {4214, 7, 5, 6, 4, 76165, 11, 47, 3};
+        int[] arr2 = new int[arr.length];
+        System.arraycopy(arr, 0, arr2, 0, arr.length);
+        Arrays.sort(arr2);
         int j = 0;
         int i = 0;
 
@@ -73,11 +76,6 @@ public class Main {
 // point 4 (Display numbers that are in ascending order)
 
         System.out.print("Numbers that are in ascending order : ");
-        int[] arr2 = new int[arr.length];
-        System.arraycopy(arr, 0, arr2, 0, arr.length);
-        Arrays.sort(arr2);
-
-
         out:
         for (i = 0; i < arr.length; i++) {
             for (j = 0; j < arr.length - 2; j++) {
@@ -87,6 +85,7 @@ public class Main {
             }
         }
         System.out.print(arr[j]);
+
 
         for (i = i; i < arr.length; i++) {
             for (int j1 = j + 1; j1 < arr.length; j1++) {
