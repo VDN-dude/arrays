@@ -48,9 +48,7 @@ public class Main {
 //point 3 (Shortest & Longest numbers)
 
         int shortest = 0;
-
         int longest = 0;
-
         int start = 0;
 
         for (i = 0; i < arr.length; i++) {
