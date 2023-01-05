@@ -3,11 +3,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.print("Please write numbers with space between them : ");
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        String[] ar = s.split(" ");
 
-        int[] arr = {4214, 7, 5, 6, 4, 76165, 11, 47, 3};
+        int arLenght = ar.length;
+        int[] arr = new int[arLenght];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Integer.parseInt(ar[i]);
+        }
+
         int[] arr2 = new int[arr.length];
         System.arraycopy(arr, 0, arr2, 0, arr.length);
         Arrays.sort(arr2);
+
         int j = 0;
         int i = 0;
 
@@ -30,17 +40,17 @@ public class Main {
         System.out.println("Min number in the array : " + min);
 
 //point 2 (Evens & Odds numbers)
-        System.out.print("Even numbers :");
+        System.out.print("Even numbers : ");
         for (i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0) {
-                System.out.print(" " + arr[i]);
+                System.out.print(arr[i] + ", ");
             }
         }
         System.out.println("");
-        System.out.print("Odd numbers :");
+        System.out.print("Odd numbers : ");
         for (i = 0; i < arr.length; i++) {
             if (arr[i] % 2 != 0) {
-                System.out.print(" " + arr[i]);
+                System.out.print(arr[i] + ", ");
             }
         }
         System.out.println("");
@@ -98,14 +108,22 @@ public class Main {
 //point 5 (Palindromes)
 
         System.out.print("Palindromes : ");
+        boolean palindromes = false;
         for (i = 0; i < arr.length; i++) {
+
             String snum = String.valueOf(Math.abs(arr[i]));
             StringBuilder lenght = new StringBuilder(snum);
+
             int l = Integer.parseInt(lenght.reverse().toString());
             int num = Integer.parseInt(snum);
+
             if (num == l && lenght.length() > 1) {
                 System.out.print(arr[i] + " ");
+                palindromes = true;
             }
+        }
+        if (!palindromes){
+            System.out.print("No palindromes");
         }
         System.out.println("");
 //point with *
@@ -122,6 +140,6 @@ public class Main {
                 }
             }
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println("Bubble sorted array: " + Arrays.toString(arr));
     }
 }
